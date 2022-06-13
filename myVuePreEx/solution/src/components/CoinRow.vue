@@ -1,13 +1,13 @@
 <template>
   <ul class="coinRow">
-    <li><img :src="require(`@/assets/${coin.logoPath}`)" alt="logo coin"></li>
+    <li><img :src="require(`@/assets/images/${coin.logoPath}`)" alt="logo coin"></li>
     <li>
       <h2>{{ coin.name }}</h2></li>
     <li>
       <p>Coins owned: {{ coin.amountOwned }}</p>
     </li>
     <li>
-      <input v-model="transactionAmount" type="number">
+      <input v-model="transactionAmount" type="number" oninput="this.value = this.value.replace(/[^1-9.]/, '').replace(/(\..*)\./);">
     </li>
     <li>
       <button class="btn green" @click="buyCoins">BUY</button>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "coinRow",
+  name: "CoinRow",
   data() {
     return {
       transactionAmount: Number,
@@ -30,7 +30,7 @@ export default {
   props: {
     coin: Object
   },
-  emits:['sell'],
+
   methods: {
     buyCoins() {
       this.$emit('amountNotValid', false)
@@ -46,8 +46,6 @@ export default {
       }
     }
   },
-
-
 }
 </script>
 
