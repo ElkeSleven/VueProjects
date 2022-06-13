@@ -36,4 +36,4 @@ const app = Vue.createApp({
         }
     }
 })
-const list = ["eee","zz","ee","zzz"]
+
