@@ -19,7 +19,6 @@ export default {
   },
   methods:{
     onclick(taget){
-
       if(taget === 'Sell'){
         alert(taget)
       }
